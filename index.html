@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAHHAL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Raleway', sans-serif;
+            background: #111;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: center; /* Center the navigation */
+            align-items: center;
+            padding: 1rem 2rem;
+            background: rgba(0, 0, 0, 0.8);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-weight: 300;
+            position: absolute;
+            left: 2rem; /* Position the logo to the left */
+        }
+
+        header .logo img {
+            max-height: 40px; /* Adjust the max height of the image */
+            margin-right: 1rem; /* Add some space between the image and the text */
+        }
+
+        header nav {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        header nav ul li {
+            margin-left: 1rem; /* Adjusted margin to move buttons slightly to the left */
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 300;
+            transition: color 0.3s;
+        }
+
+        header nav ul li a:hover {
+            color: rgb(255, 170, 4); /* Change color on hover */
+        }
+
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            height: 100vh;
+            position: relative;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end; /* Align items to the bottom */
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-text {
+            text-align: left;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            margin: 2rem; /* Add margin for positioning */
+        }
+
+        .carousel-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .carousel-text button {
+            background-color: rgb(255, 170, 4);
+            border: none;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            color: #111;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            padding: 1rem;
+            color: #fff;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .carousel-control.prev {
+            left: 1rem;
+        }
+
+        .carousel-control.next {
+            right: 1rem;
+        }
+
+        .section-content {
+            display: flex;
+            padding: 4rem 2rem;
+        }
+
+        .section-content img {
+            max-width: 50%;
+            border-radius: 10px;
+            margin-right: 2rem;
+        }
+
+        .section-content div {
+            max-width: 50%;
+        }
+
+        #download button {
+            background-color: rgb(255, 170, 4);
+            border: none;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            color: #111;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        @media screen and (max-width: 768px) {
+            header {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            header .logo {
+                position: static;
+                margin-bottom: 0;
+            }
+
+            header nav {
+                justify-content: flex-end;
+            }
+
+            header nav ul {
+                flex-wrap: wrap;
+            }
+
+            header nav ul li {
+                margin-left: 0.5rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .section-content {
+                flex-direction: column;
+            }
+
+            .section-content img {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            header nav ul li {
+                margin-left: 0.2rem;
+                margin-bottom: 0.2rem;
+            }
+
+            header nav ul li a {
+                font-size: 0.8rem;
+                padding: 0.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="horas.png" alt="Logo"> <!-- Add your photo here -->
+            RAHHAL
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#download">Download</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="carousel">
+        <button class="carousel-control prev" onclick="prevSlide()">&#10094;</button>
+        <button class="carousel-control next" onclick="nextSlide()">&#10095;</button>
+        <div class="carousel-slide" style="background-image: url('carusel 1.png');">
+            <div class="carousel-text">
+                <h1>Overview</h1>
+                <button onclick="scrollToSection('overview')">Check Rahhal</button>
+            </div>
+        </div>
+        <div class="carousel-slide" style="background-image: url('carusel 2.png');">
+            <div class="carousel-text">
+                <h1>Features</h1>
+                <button onclick="scrollToSection('features')">Go to Features</button>
+            </div>
+        </div>
+        <div class="carousel-slide" style="background-image: url('carusel 3.png');">
+            <div class="carousel-text">
+                <h1>Download</h1>
+                <button onclick="scrollToSection('download')">Go to Download</button>
+            </div>
+       
+        </div>
+    </div>
+    <section id="about">
+        <div class="section-content">
+            <img src="about.png" alt="About Image">
+            <div>
+                <h2>About</h2>
+                <p>A virtual tour is a simulation of an existing location, usually composed of a sequence of videos, still images or 360-degree images. It may also use other multimedia elements such as sound effects, music, narration, text and floor map. It is distinguished from the use of live television to affect tele-tourism
+
+The phrase "virtual tour" is often used to describe a variety of videos and photographic-based media. Panorama indicates an unbroken view, since a panorama can be either a series of photographs or panning video footage. However, the phrases "panoramic tour" and "virtual tour" have mostly been associated with virtual tours created using still cameras. Such virtual tours are made up of a number of shots taken from a single vantage point. The camera and lens are rotated around what is known as a no parallax point (the exact point at the back of the lens where the light converges).
+
+A video tour is a full motion video of a location. Unlike the virtual tour's static wrap-around feel, a video tour is a linear walk-through of a location. Using a video camera, the location is filmed at a walking pace while moving continuously from one point to another throughout the subject location.[citation needed] 3D virtual tours can be created using 3D reconstruction.</p>
+            </div>
+        </div>
+    </section>
+    <section id="overview">
+        <div class="section-content">
+            <div>
+                <h2>Overview</h2>
+                <p>Egypt, a cradle of civilization, attracts millions of tourists annually with its rich historical
+tapestry. The country's iconic ancient monuments, from the Pyramids of Giza to the Sphinx,
+serve as testament to its cultural heritage. In the pursuit of enhancing the visitor experience, our
+mobile application emerges at the intersection of technology and tourism. Focused on the Flutter
+framework, Vuforia's augmented reality (AR) , and Firebase's backend capabilities, the
+application seeks to immerse users in a dynamic exploration of Egypt's ancient wonders.
+</p>
+            </div>
+            <img src="All_Gizah_Pyramids.jpg" alt="Overview Image">
+        </div>
+    </section>
+    <section id="features">
+        <div class="section-content">
+            <img src="RahhalChar.png" alt="Features Image">
+            <div>
+                <h2>Features</h2>
+                <p>Make the tourist able to watch Rahhal talking to them about the monument. 
+,Make the tourist able interact with a 3D model for the monument in front of him.
+,Make the tourist able to search for monuments.
+Once the tourist reach in an ancient place he got alerted.
+.</p>
+            </div>
+        </div>
+    </section>
+    <section id="download">
+        <div class="section-content">
+            <img src="download byta.png" alt="Download Image">
+            <div>
+                <h2>Download</h2>
+                <p>Get the latest version of RAHHAL.</p>
+               <a href="default.asp" target="_blank">Download</a>
+            </div>
+        </div>
+    </section>
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+
+        function showSlide(index) {
+            if (index >= slides.length) {
+                currentSlide = 0;
+            } else if (index < 0) {
+                currentSlide = slides.length - 1;
+            } else {
+                currentSlide = index;
+            }
+            slides.forEach((slide, i) => {
+                slide.style.transform = `translateX(${100 * (i - currentSlide)}%)`;
+            });
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function downloadApk() {
+            window.location.href = 'path/to/your/apk/file.apk';
+        }
+
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
